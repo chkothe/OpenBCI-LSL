@@ -14,10 +14,8 @@ import time
 def sendData(sample):
         # get 8 channel sample from OpenBCI Board; this is converted into a pylsl.vectorf (the data type that is expected by push_sample)
         mysample = sample.channel_data
-        # get a time stamp in seconds from OpenBCI hardware
-        stamp = sample.getTime()
         # now send it, will wait for board to send next packet.
-        outlet.push_sample(mysample,stamp)
+        outlet.push_sample(mysample)
 
         print((mysample,stamp)) # debug
 
